@@ -10,7 +10,7 @@ $ node index.js -h # for usage
 
 Options:
   -h  Show help
-  -i  [required]  [default: "input.txt"]
-  -o  [required]  [default: "output.txt"]
-  -f  [required]  [default: "sample_filter"]
+  -i                                          [required]  [default: "input.csv"]
+  -o                                        [required]  [default: "output.json"]
+  -c                                      [required]  [default: "sample_config"]
 ```
