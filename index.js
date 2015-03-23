@@ -4,9 +4,9 @@ var csv = require('csv').parse,
   Filter = require('./lib/filter'),
   argv = require('yargs')
     .help('h')
-    .usage('Usage: $0 -i [input file] -o [output file] -f [filter file]')
-    .demand(['i','o','f'])
-    .default({ i: 'input.txt', o: 'output.txt', f: 'sample_filter' })
+    .usage('Usage: $0 -i [input file] -o [output file] -c [config file]')
+    .demand(['i','o','c'])
+    .default({ i: 'input.csv', o: 'output.json', c: 'sample_config' })
     .argv;
 
 
@@ -17,11 +17,11 @@ var t1 = Date.now();
 
 var fileName = __dirname+'/'+argv.i;
 var ws = fs.createWriteStream(__dirname+'/'+argv.o);
-var filterCriteria = require('./'+argv.f);
+var config = require('./'+argv.c);
 
 
 // Init things, and the filter criteria
-var filter = new Filter(filterCriteria);
+var filter = new Filter(config);
 ws.write('[\n');
 
 

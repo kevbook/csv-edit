@@ -4,7 +4,7 @@ Edit editor
 #### Usage
 Takes a large csv file, and applies filters, breaks it down, converts it into JSON.
 
-```bash
+```sh
 # Use the CSV sample filter as example
 $ node index.js -h # for usage
 
