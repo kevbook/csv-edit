@@ -1,0 +1,21 @@
+{
+  "name": "csv-edit",
+  "version": "0.0.1",
+  "description": "Takes a large csv file, and applies filters, breaks it down, converts it into JSON.",
+  "homepage": "https://github.com/kevbook/csv-edit",
+  "author": "Karan Sakhuja <kevin.sakhuja@gmail.com> (http://kevify.com)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevbook/csv-edit.git"
+  },
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/kevbook/csv-edit/issues"
+  },
+  "dependencies": {
+    "lodash": "latest",
+    "yargs": "latest",
+    "csv": "latest"
+  }
+}
