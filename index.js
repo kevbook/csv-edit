@@ -1,6 +1,8 @@
 
 var csv = require('csv').parse,
   fs = require('fs'),
+  prettyMs = require('pretty-ms'),
+  pathIsAbsolute = require('path-is-absolute'),
   Filter = require('./lib/filter'),
   argv = require('yargs')
     .help('h')
@@ -15,9 +17,18 @@ var output = [];
 var t1 = Date.now();
 
 
-var fileName = __dirname+'/'+argv.i;
-var ws = fs.createWriteStream(__dirname+'/'+argv.o);
-var config = require('./'+argv.c);
+var fileName = pathIsAbsolute(argv.i)
+                ? argv.i : (__dirname+'/'+argv.i);
+
+var ws = fs.createWriteStream(
+            pathIsAbsolute(argv.o)
+              ? argv.o : (__dirname+'/'+argv.o)
+          );
+
+var config = require(
+              pathIsAbsolute(argv.c)
+                ? argv.c : (__dirname+'/'+argv.c)
+             );
 
 
 // Init things, and the filter criteria
@@ -52,7 +63,7 @@ var parser = csv({
   ws.write(']');
   ws.end();
   console.log('Total Rows: %s', count);
-  console.log('Time Taken rows: %s seconds', (Date.now() - t1)/1000);
+  console.log('Time Taken rows: %s', prettyMs((Date.now() - t1)/1000, {compact: true}));
 });
 
 fs.createReadStream(fileName).pipe(parser);

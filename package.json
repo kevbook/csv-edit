@@ -14,8 +14,10 @@
     "url": "https://github.com/kevbook/csv-edit/issues"
   },
   "dependencies": {
+    "csv": "latest",
     "lodash": "latest",
-    "yargs": "latest",
-    "csv": "latest"
+    "path-is-absolute": "^1.0.0",
+    "pretty-ms": "^1.1.0",
+    "yargs": "latest"
   }
 }
